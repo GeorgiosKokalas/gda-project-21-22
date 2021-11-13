@@ -24,7 +24,7 @@ public class CollisionPlzWork : MonoBehaviour
     {
         if(collision != null)
         {
-            LogCollisionEnter.text = "On Trigger Enter: " + collision.GetComponent<Collider>().name;
+            Debug.Log("On Trigger Enter: " + collision.GetComponent<Collider>().name);
         }
     }
     /*
