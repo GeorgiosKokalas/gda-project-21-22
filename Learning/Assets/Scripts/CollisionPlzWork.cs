@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CollisionPlzWork : MonoBehaviour
 {
     public Text LogCollisionEnter;
     public Text LogCollisionStay;
     public Text LogCollisionExit;
+
+    [SerializeField] TextMeshProUGUI tmp;
+    private bool hit_check = false;
 
     void Start()
     {
@@ -27,6 +31,21 @@ public class CollisionPlzWork : MonoBehaviour
             Debug.Log("On Trigger Enter: " + collision.GetComponent<Collider>().name);
         }
     }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        int new_val = int.Parse(tmp.text);
+        if (hit_check){
+            new_val += 10;
+        } else {
+            new_val -= 10;
+        }
+        tmp.text = new_val.ToString();
+        hit_check = false;
+        Destroy (other.gameObject); 
+    }
+
     /*
     private void OnTriggerStay(Collider collision)
     {
