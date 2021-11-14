@@ -1450,6 +1450,8 @@ PlayableDirector:
     value: {fileID: 1846783000}
   - key: {fileID: -5252949317416761515, guid: 84d765ded34f4964492d3676edaadafb, type: 2}
     value: {fileID: 1347619341}
+  - key: {fileID: 4740850360307557529, guid: 84d765ded34f4964492d3676edaadafb, type: 2}
+    value: {fileID: 2110788530}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1107090089
@@ -3006,6 +3008,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2110788528}
   - component: {fileID: 2110788529}
+  - component: {fileID: 2110788530}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -3089,6 +3092,25 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!95 &2110788530
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110788527}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2137659664
 GameObject:
   m_ObjectHideFlags: 0
