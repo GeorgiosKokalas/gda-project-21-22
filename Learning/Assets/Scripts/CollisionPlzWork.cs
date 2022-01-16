@@ -7,6 +7,7 @@ public class CollisionPlzWork : MonoBehaviour
     public Text LogCollisionEnter;
     public Text LogCollisionStay;
     public Text LogCollisionExit;
+    public Player Frog;
 
     [SerializeField] TextMeshProUGUI tmp;
     private bool hit_check = false;
@@ -38,8 +39,10 @@ public class CollisionPlzWork : MonoBehaviour
         int new_val = int.Parse(tmp.text);
         if (hit_check){
             new_val += 10;
+            Frog.TakeDamage(-2f);
         } else {
             new_val -= 10;
+            Frog.TakeDamage(2f);
         }
         tmp.text = new_val.ToString();
         hit_check = false;
