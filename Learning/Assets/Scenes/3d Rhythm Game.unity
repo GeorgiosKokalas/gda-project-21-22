@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 23776594}
   m_Layer: 0
   m_Name: Note (1)
-  m_TagString: Untagged
+  m_TagString: enemy_note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 216967429}
   m_Layer: 0
   m_Name: Note (2)
-  m_TagString: Untagged
+  m_TagString: enemy_note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1067,7 +1067,7 @@ GameObject:
   - component: {fileID: 644629511}
   m_Layer: 0
   m_Name: Note (3)
-  m_TagString: Untagged
+  m_TagString: enemy_note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1160,7 +1160,7 @@ GameObject:
   - component: {fileID: 684199785}
   - component: {fileID: 684199786}
   m_Layer: 5
-  m_Name: Health Bar
+  m_Name: Health_Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 50.4
+  m_Value: 70
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1251,11 +1251,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c432ada4e97ef2c47a301d88b3bea292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 684199785}
   destination: 0
   journey: 0
-  fill: {fileID: 612470893}
   timeFlow: 0
+  fill: {fileID: 612470893}
+  maxHealth: 100
+  startingHealth: 50
+  currentHealth: 50
 --- !u!1 &943220460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,7 +1519,7 @@ GameObject:
   - component: {fileID: 1176564368}
   m_Layer: 0
   m_Name: Note (4)
-  m_TagString: Untagged
+  m_TagString: enemy_note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1613,7 +1615,7 @@ GameObject:
   - component: {fileID: 1285974081}
   - component: {fileID: 1285974082}
   m_Layer: 0
-  m_Name: Cube_col
+  m_Name: Cube_col_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1693,7 +1695,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2081882452}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1285974081
 Rigidbody:
@@ -1723,11 +1725,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8625645596ed7479b34c1d024ca901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LogCollisionEnter: {fileID: 0}
-  LogCollisionStay: {fileID: 0}
-  LogCollisionExit: {fileID: 0}
-  Frog: {fileID: 943220461}
+  health_bar: {fileID: 684199786}
   tmp: {fileID: 1052237944}
+  CollisionKey: 97
+  hit_check: 0
+  has_note: 0
 --- !u!1 &1318143419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,7 +1997,7 @@ GameObject:
   - component: {fileID: 1395244209}
   - component: {fileID: 1395244210}
   m_Layer: 0
-  m_Name: Cube_col
+  m_Name: Cube_col_S
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2075,7 +2077,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2081882452}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1395244209
 Rigidbody:
@@ -2105,11 +2107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8625645596ed7479b34c1d024ca901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LogCollisionEnter: {fileID: 0}
-  LogCollisionStay: {fileID: 0}
-  LogCollisionExit: {fileID: 0}
-  Frog: {fileID: 943220461}
+  health_bar: {fileID: 684199786}
   tmp: {fileID: 1052237944}
+  CollisionKey: 115
+  hit_check: 0
+  has_note: 0
 --- !u!1 &1404991403
 GameObject:
   m_ObjectHideFlags: 0
@@ -2519,7 +2521,7 @@ GameObject:
   - component: {fileID: 1770655895}
   m_Layer: 0
   m_Name: Note
-  m_TagString: Untagged
+  m_TagString: enemy_note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2942,7 +2944,7 @@ GameObject:
   - component: {fileID: 2077094972}
   - component: {fileID: 2077094973}
   m_Layer: 0
-  m_Name: Cube_col
+  m_Name: Cube_col_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3022,7 +3024,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2081882452}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2077094972
 Rigidbody:
@@ -3052,11 +3054,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8625645596ed7479b34c1d024ca901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LogCollisionEnter: {fileID: 0}
-  LogCollisionStay: {fileID: 0}
-  LogCollisionExit: {fileID: 0}
-  Frog: {fileID: 943220461}
+  health_bar: {fileID: 684199786}
   tmp: {fileID: 1052237944}
+  CollisionKey: 100
+  hit_check: 0
+  has_note: 0
 --- !u!1 &2081882451
 GameObject:
   m_ObjectHideFlags: 0
@@ -3084,9 +3086,9 @@ Transform:
   m_LocalPosition: {x: -5, y: 1, z: 9.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1285974080}
   - {fileID: 1395244208}
   - {fileID: 2077094971}
-  - {fileID: 1285974080}
   - {fileID: 1878284189}
   - {fileID: 133876267}
   - {fileID: 1386596488}

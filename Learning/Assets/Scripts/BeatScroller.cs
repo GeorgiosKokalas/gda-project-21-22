@@ -8,7 +8,7 @@ public class BeatScroller : MonoBehaviour
 
     public bool hasStarted;
 
-    public Player Frog;
+    // public Player Frog;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class BeatScroller : MonoBehaviour
             }
         } else
         {
-            Frog.TakeDamage(0.01f);
+            // Frog.TakeDamage(0.01f);
             transform.position -= new Vector3(0f, 0f, beatTempo * Time.deltaTime);
         }
     }
