@@ -13,16 +13,25 @@ public class CollisionPlzWork : MonoBehaviour {
 
     [SerializeField] TextMeshProUGUI tmp;
     
+    //Get the Images to reflect the change in presses
+    [SerializeField] Sprite defaultImage;
+    [SerializeField] Sprite pressedImage;
+    private SpriteRenderer sprite_renderer;
+    
     // Identifier for the type o
     [SerializeField] KeyCode CollisionKey;
 
     // Checks for when and if the player should hit keys 
-    [SerializeField] bool hit_check = false; // Checks if the player has hit keys
-    [SerializeField] bool has_note = false;  // Checks if the player needs to hit a key
+    private bool hit_check = false; // Checks if the player has hit keys
+    private bool has_note = false;  // Checks if the player needs to hit a key
 
 
 
-//------BUILT-IN FUNCTIONS-----------------------
+//------BUILT-IN FUNCTIONS-----------------------    
+    private void Awake(){
+        sprite_renderer = transform.Find("Indicator").GetComponent<SpriteRenderer>();
+    }
+    
     private void Update(){
         CheckForPress();
     }
@@ -31,7 +40,6 @@ public class CollisionPlzWork : MonoBehaviour {
         StartNoteTaking(other);
     }
 
-
     private void OnTriggerExit(Collider other){
         StopNoteTaking(other);
     }
@@ -39,6 +47,23 @@ public class CollisionPlzWork : MonoBehaviour {
 
 
 //------CUSTOM-MADE FUNCTIONS----------------------
+    // Check every time a button is pressed 
+    void CheckForPress() {
+        if (Input.GetKeyUp(CollisionKey)){ // Exit if any other key was pressed
+            sprite_renderer.sprite = defaultImage;
+        } else if (Input.GetKeyDown(CollisionKey)) {
+            sprite_renderer.sprite = pressedImage;
+            if (has_note){              //If there is note to hit check that the player is good
+                Debug.Log("POWER");
+                hit_check = true;
+                has_note = false;           // Only hit it once
+            } else {                    //Otherwise damage player
+                health_bar.ChangeHealth(-5f); 
+            }
+        }
+    }
+    
+
     // Check if the collision happened from a note
     // Make the collision box wait for Player Input
     void StartNoteTaking(Collider other){
@@ -75,19 +100,6 @@ public class CollisionPlzWork : MonoBehaviour {
         Destroy (other.gameObject);     //Destroy the note that just exited
     }
 
-    
-    // Check every time a button is pressed 
-    public void CheckForPress() {
-        if (!Input.GetKeyDown(CollisionKey)){ return; } // Exit if any other key was pressed
-        // Debug.Log("POWER");
-        if (has_note){              //If there is note to hit check that the player is good
-            Debug.Log("POWER");
-            hit_check = true;
-            has_note = false;           // Only hit it once
-        } else {                    //Otherwise damage player
-            health_bar.ChangeHealth(-5f); 
-        }
-    }
 
 
 
