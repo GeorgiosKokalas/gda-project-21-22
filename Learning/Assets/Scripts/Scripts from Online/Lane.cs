@@ -1,4 +1,5 @@
 ﻿using Melanchall.DryWetMidi.Interaction;
+using Melanchall.DryWetMidi.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
