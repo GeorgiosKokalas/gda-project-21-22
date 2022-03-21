@@ -2646,6 +2646,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1347619340}
   - component: {fileID: 1347619339}
+  - component: {fileID: 1347619341}
   m_Layer: 0
   m_Name: Froggy
   m_TagString: Untagged
@@ -2718,6 +2719,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 15, y: -30, z: 0}
+--- !u!95 &1347619341
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347619338}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1386596484
 GameObject:
   m_ObjectHideFlags: 0
@@ -3335,6 +3355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1846782999}
   - component: {fileID: 1846782998}
+  - component: {fileID: 1846783000}
   m_Layer: 0
   m_Name: Bandit
   m_TagString: Untagged
@@ -3407,6 +3428,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 15, y: -30, z: 0}
+--- !u!95 &1846783000
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846782997}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1847409008
 GameObject:
   m_ObjectHideFlags: 0
