@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6650990477345639134}
   - component: {fileID: -4703270904506760954}
   m_Layer: 0
-  m_Name: Note
+  m_Name: DefenseNote
   m_TagString: enemy_note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,3 +108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 913c4642a6ee04a408cbe7d492b82d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftSpawn: {fileID: 0}
+  midSpawn: {fileID: 0}
+  rightSpawn: {fileID: 0}
+  leftCol: {fileID: 0}
+  midCol: {fileID: 0}
+  rightCol: {fileID: 0}
+  defensePhase: 1
