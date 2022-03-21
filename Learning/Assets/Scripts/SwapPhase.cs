@@ -45,6 +45,10 @@ public class SwapPhase : MonoBehaviour
 
     public void swaptoAttack()
     {
+
+        //remove references to second camera, second lights, second audio listeners, etc, and replace with a call to do dynamic camera/lighting/object movement with timeline
+
+
         noteholder.GetComponent<BeatScroller>().notePrefab = attackNote;
         player.GetComponent<SpriteRenderer>().sprite = playerFrontSprite;
         //enemy.GetComponent<SpriteRenderer>().sprite = enemyFrontSprite; //we dont have enemy backsprites yet
