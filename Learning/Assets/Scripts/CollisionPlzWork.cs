@@ -72,7 +72,8 @@ public class CollisionPlzWork : MonoBehaviour {
 
         /* If the collision is caused by an enemy note (as it should),
            Indicate that this collision box needs player input*/
-        if(other.tag == "enemy_note"){
+        if(other.tag == "enemy_note" || other.tag == "left_note" || other.tag == "mid_note" || other.tag == "right_note")
+        {
             has_note = true;
         }
     }
@@ -83,7 +84,8 @@ public class CollisionPlzWork : MonoBehaviour {
     void StopNoteTaking(Collider other){
         /* If the collision exit is triggered by an enemy note,
            indicate that this collision box no longer needs player input */
-        if(other.tag == "enemy_note"){
+        if(other.tag == "enemy_note" || other.tag == "left_note" || other.tag == "mid_note" || other.tag == "right_note")
+        {
             has_note = false;
         }
         // based on if the player has hit the correct box, determine their new health
