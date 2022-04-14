@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
+    //------VARIABLES-----------------------------
     public static bool GameIsPaused = false;
-
     public GameObject pauseMenuUI;
-
     public GameObject audioPlayer;
 
-    // Update is called once per frame
+
+    //------BUILT-IN FUNCTIONS-----------------------
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if(GameIsPaused)
             {
-                Resume();
+                StartCoroutine(Resume());
             }
             else
             {
@@ -26,10 +26,17 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    void Resume()
+//------CUSTOM-MADE FUNCTIONS----------------------
+    IEnumerator Resume()
     {
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
+        int seconds = 5;
+        while (seconds > 0){
+            Debug.Log(seconds+" seconds left.");
+            yield return new WaitForSecondsRealtime(1f);
+            seconds--;
+        }
+        Time.timeScale = 1f; 
         GameIsPaused = false;
         audioPlayer.GetComponent<AudioSource>().Play();
     }
