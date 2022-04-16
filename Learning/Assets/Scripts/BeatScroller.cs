@@ -25,6 +25,7 @@ public class BeatScroller : MonoBehaviour
     private Quaternion rotation;
 
     public MidiFile mapTrack;
+    private int currentNote;
 
     // public Player Frog;
 
@@ -33,6 +34,7 @@ public class BeatScroller : MonoBehaviour
     {
         beatTempo = beatTempo / 20f;
         rotation = leftSpawn.transform.rotation;
+        currentNote = 0;
         generateBeatmap();
     }
 
@@ -68,14 +70,32 @@ public class BeatScroller : MonoBehaviour
             GameObject newNote = Instantiate(notePrefab, new Vector3(rightSpawn.transform.position.x, rightSpawn.transform.position.y, rightSpawn.transform.position.z), rotation, transform);
             newNote.tag = "right_note";
         }
+
+
+        //BEATMAP CONTROLS
+        //procede through array in order (should already be sorted)
+        //when current time = note's time, spawn note (with an offset to account for the time to travel from spawn to the hit zone, and a grace window to allow for error), then advance through array
+        if (Time.timeSinceLevelLoad - 0.00001 < noteTimestamps[currentNote] < Time.timeSinceLevelLoad + 0.00001)
+        {
+            GameObject newNote = Instantiate(notePrefab, new Vector3(midSpawn.transform.position.x, midSpawn.transform.position.y, midSpawn.transform.position.z), rotation, transform);
+            newNote.tag = "mid_note";
+            currentNote += 1;
+        }
+
     }
 
     //CUSTOM-MADE FUNCTIONS
     void generateBeatmap()
     {
         //create array of timestamps representing each note
-        //procede through array in order (should already be sorted)
-        //when current time = note's time, spawn note (with an offset to account for the time to travel from spawn to the hit zone, and a grace window to allow for error), then advance through array
+        IEnumerable<Note> notes = mapTrack.GetNotes();
+        TempoMap tempoMap = mapTrack.GetTempoMap();
+        List<MetricTimeSpan> noteTimestamps = { }; 
 
+        foreach (Note note in notes)
+            {
+                MetricTimeSpan metricTime = note.TimeAs<MetricTimeSpan>(tempoMap);
+                noteTimestamps.push_front(metricTime);
+            }
     }
 }
