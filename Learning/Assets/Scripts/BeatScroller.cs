@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Melanchall.DryWetMidi.Core;
-using Melanchall.DryWetMidi.Interaction;
 
 public class BeatScroller : MonoBehaviour
 {
@@ -22,13 +20,7 @@ public class BeatScroller : MonoBehaviour
     public GameObject midCol;
     public GameObject rightCol;
 
-    private Quaternion rotation;
-
-    public MidiFile mapTrack;
-
-    
-    private int currentNote;
-    private List<double> noteTimestamps = new List<double>();
+    private Quaternion rotation; 
 
     // public Player Frog;
 
@@ -37,27 +29,22 @@ public class BeatScroller : MonoBehaviour
     {
         beatTempo = beatTempo / 20f;
         rotation = leftSpawn.transform.rotation;
-        currentNote = 0;
-
-        mapTrack = MidiFile.Read("Assets/Audio/forg.mid");
-
-        generateBeatmap();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!hasStarted)
+        if(!hasStarted)
         {
-            if (Input.anyKeyDown)
+            if(Input.anyKeyDown)
             {
                 hasStarted = true;
             }
         } else
         {
-            foreach (Transform child in transform)
+            foreach(Transform child in transform)
             {
-                child.transform.position += child.transform.forward * beatTempo * Time.deltaTime;
+                child.transform.position += child.transform.forward *  beatTempo * Time.deltaTime;
             }
         }
 
@@ -76,6 +63,8 @@ public class BeatScroller : MonoBehaviour
             GameObject newNote = Instantiate(notePrefab, new Vector3(rightSpawn.transform.position.x, rightSpawn.transform.position.y, rightSpawn.transform.position.z), rotation, transform);
             newNote.tag = "right_note";
         }
+<<<<<<< Updated upstream
+=======
 
 
         //BEATMAP CONTROLS
@@ -84,8 +73,25 @@ public class BeatScroller : MonoBehaviour
         if (Mathf.Abs((float)(Time.timeSinceLevelLoadAsDouble - noteTimestamps[currentNote])) < 0.01f)
         {
             Debug.Log("Note spawn");
-            GameObject newNote = Instantiate(notePrefab, new Vector3(midSpawn.transform.position.x, midSpawn.transform.position.y, midSpawn.transform.position.z), rotation, transform);
-            newNote.tag = "mid_note";
+            int xcount = Random.Range(1, 4);
+
+            if (xcount == 1)
+            {
+                GameObject newNote = Instantiate(notePrefab, new Vector3(leftSpawn.transform.position.x, leftSpawn.transform.position.y, leftSpawn.transform.position.z), rotation, transform);
+                newNote.tag = "left_note";
+            }
+            if (xcount == 2)
+            {
+                GameObject newNote = Instantiate(notePrefab, new Vector3(midSpawn.transform.position.x, midSpawn.transform.position.y, midSpawn.transform.position.z), rotation, transform);
+                newNote.tag = "mid_note";
+            }
+            if (xcount == 3)
+            {
+                GameObject newNote = Instantiate(notePrefab, new Vector3(rightSpawn.transform.position.x, rightSpawn.transform.position.y, rightSpawn.transform.position.z), rotation, transform);
+                newNote.tag = "right_note";
+            }
+
+
             currentNote += 1;
         }
 
@@ -106,5 +112,6 @@ public class BeatScroller : MonoBehaviour
         Debug.Log(noteTimestamps[0]);
         Debug.Log(noteTimestamps[1]);
         Debug.Log(noteTimestamps[2]);
+>>>>>>> Stashed changes
     }
 }

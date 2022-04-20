@@ -14,6 +14,7 @@ public class SwapPhase : MonoBehaviour
     public Sprite playerBackSprite;
     public Sprite playerFrontSprite;
     public GameObject attackSwapControlPanel;
+    public GameObject defenseSwapControlPanel;
     private PlayableDirector director;
 
     // Start is called before the first frame update
@@ -25,7 +26,16 @@ public class SwapPhase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //example phase swaps at random time intervals, will change later
+      /*if (Mathf.Abs((float)(Time.timeSinceLevelLoad - 5f)) < 0.01f)
+        {
+            swapPhase();
+        }
         
+      if (Mathf.Abs((float)(Time.timeSinceLevelLoad - 10f)) < 0.01f)
+        {
+            swapPhase();
+        }*/
     }
 
     public void swapPhase()
@@ -54,6 +64,9 @@ public class SwapPhase : MonoBehaviour
 
     public void swaptoDefense()
     {
+        director = defenseSwapControlPanel.GetComponent<PlayableDirector>();
+        director.Play();
+
         noteholder.GetComponent<BeatScroller>().notePrefab = defenseNote;
         player.GetComponent<SpriteRenderer>().sprite = playerBackSprite;
         //enemy.GetComponent<SpriteRenderer>().sprite = enemyBackSprite; //we dont have enemy backsprites yet
