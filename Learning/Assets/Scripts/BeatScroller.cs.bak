@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Melanchall.DryWetMidi.Core;
-using Melanchall.DryWetMidi.Interaction;
 
 public class BeatScroller : MonoBehaviour
 {
@@ -22,10 +20,7 @@ public class BeatScroller : MonoBehaviour
     public GameObject midCol;
     public GameObject rightCol;
 
-    private Quaternion rotation;
-    public MidiFile mapTrack;
-    private int currentNote;
-    private List<double> noteTimestamps = new List<double>();
+    private Quaternion rotation; 
 
     // public Player Frog;
 
@@ -34,11 +29,6 @@ public class BeatScroller : MonoBehaviour
     {
         beatTempo = beatTempo / 20f;
         rotation = leftSpawn.transform.rotation;
-        currentNote = 0;
-
-        mapTrack = MidiFile.Read("Assets/Audio/forg.mid");
-
-        generateBeatmap();
     }
 
     // Update is called once per frame
@@ -73,6 +63,8 @@ public class BeatScroller : MonoBehaviour
             GameObject newNote = Instantiate(notePrefab, new Vector3(rightSpawn.transform.position.x, rightSpawn.transform.position.y, rightSpawn.transform.position.z), rotation, transform);
             newNote.tag = "right_note";
         }
+<<<<<<< Updated upstream
+=======
 
 
         //BEATMAP CONTROLS
@@ -120,5 +112,6 @@ public class BeatScroller : MonoBehaviour
         Debug.Log(noteTimestamps[0]);
         Debug.Log(noteTimestamps[1]);
         Debug.Log(noteTimestamps[2]);
+>>>>>>> Stashed changes
     }
 }
