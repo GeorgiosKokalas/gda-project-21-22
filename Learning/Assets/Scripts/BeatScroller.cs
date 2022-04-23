@@ -27,6 +27,10 @@ public class BeatScroller : MonoBehaviour
     private int currentNote;
     private List<double> noteTimestamps = new List<double>();
 
+    private float timetoTravel = 0.9f;
+    //how long it takes for notes to get from one side to the other, dependent on bpm, etc. will probably need adjustments
+    //exact time from spawn to death is 1.031042
+
     // public Player Frog;
 
     // Start is called before the first frame update
@@ -78,7 +82,7 @@ public class BeatScroller : MonoBehaviour
         //BEATMAP CONTROLS
         //procede through array in order (should already be sorted)
         //when current time = note's time, spawn note (with an offset to account for the time to travel from spawn to the hit zone, and a grace window to allow for error), then advance through array
-        if (Mathf.Abs((float)(Time.timeSinceLevelLoadAsDouble - noteTimestamps[currentNote])) < 0.01f)
+        if (Mathf.Abs((float)((Time.timeSinceLevelLoadAsDouble + timetoTravel) - noteTimestamps[currentNote])) < 0.01f)
         {
             Debug.Log("Note spawn");
             int xcount = Random.Range(1, 4);

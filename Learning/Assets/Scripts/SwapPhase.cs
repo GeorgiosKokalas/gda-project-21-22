@@ -2,25 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 public class SwapPhase : MonoBehaviour
 {
 
     public GameObject noteholder;
+    public GameObject bandit;
     public GameObject attackNote;
     public GameObject defenseNote;
-    public GameObject player;
-    public GameObject enemy;
-    public Sprite playerBackSprite;
-    public Sprite playerFrontSprite;
-    public GameObject attackSwapControlPanel;
-    public GameObject defenseSwapControlPanel;
-    private PlayableDirector director;
+    
+    public TimelineAsset bouncyDef;
+    public TimelineAsset bouncyAtk;
+    private bool defensePhase;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        defensePhase = true;
     }
 
     // Update is called once per frame
@@ -38,20 +37,38 @@ public class SwapPhase : MonoBehaviour
         }*/
     }
 
-    public void swapPhase()
+    public void changeBounce()
     {
-        if (noteholder.GetComponent<BeatScroller>().notePrefab == defenseNote)
+        if (defensePhase)
         {
-            swaptoAttack();
+            bandit.GetComponent<PlayableDirector>().playableAsset = bouncyAtk;
+            bandit.GetComponent<PlayableDirector>().Play();
+            defensePhase = false;
         }
         else
         {
-            swaptoDefense();
+            bandit.GetComponent<PlayableDirector>().playableAsset = bouncyDef;
+            bandit.GetComponent<PlayableDirector>().Play();
+            defensePhase = true;
+        }
+    }
+
+    public void swapPhase()
+    {
+        if (defensePhase)
+        {
+            noteholder.GetComponent<BeatScroller>().notePrefab = attackNote;
+            changeBounce();
+        }
+        else
+        {
+            noteholder.GetComponent<BeatScroller>().notePrefab = defenseNote;
+            changeBounce();
         }
 
     }
 
-    public void swaptoAttack()
+    /*public void swaptoAttack()
     {
         director = attackSwapControlPanel.GetComponent<PlayableDirector>();
         director.Play();
@@ -71,6 +88,6 @@ public class SwapPhase : MonoBehaviour
         player.GetComponent<SpriteRenderer>().sprite = playerBackSprite;
         //enemy.GetComponent<SpriteRenderer>().sprite = enemyBackSprite; //we dont have enemy backsprites yet
 
-    }
+    }*/
 
 }

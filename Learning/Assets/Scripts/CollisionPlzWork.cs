@@ -98,7 +98,7 @@ public class CollisionPlzWork : MonoBehaviour {
             health_bar.ChangeHealth(-5f); 
         }
         tmp.text = new_val.ToString();
-        hit_check = false;              //Revert hit_check to its original value
+        hit_check = false; //Revert hit_check to its original value
         Destroy (other.gameObject);     //Destroy the note that just exited
     }
 
