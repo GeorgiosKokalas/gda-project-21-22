@@ -9,12 +9,19 @@ public class SwapPhase : MonoBehaviour
 
     public GameObject noteholder;
     public GameObject bandit;
+    public GameObject player;
     public GameObject attackNote;
     public GameObject defenseNote;
     
     public TimelineAsset bouncyDef;
     public TimelineAsset bouncyAtk;
     private bool defensePhase;
+
+    public Sprite playerBackSprite;
+    public Sprite playerFrontSprite;
+
+    public Animator enemyanim;
+    public Animator playeranim;
 
     // Start is called before the first frame update
     void Start()
@@ -41,14 +48,18 @@ public class SwapPhase : MonoBehaviour
     {
         if (defensePhase)
         {
-            bandit.GetComponent<PlayableDirector>().playableAsset = bouncyAtk;
-            bandit.GetComponent<PlayableDirector>().Play();
+            //bandit.GetComponent<PlayableDirector>().playableAsset = bouncyAtk;
+            //bandit.GetComponent<PlayableDirector>().Play();
+            enemyanim.Play("IdleAtk");
+            playeranim.Play("IdleAtk");
             defensePhase = false;
         }
         else
         {
-            bandit.GetComponent<PlayableDirector>().playableAsset = bouncyDef;
-            bandit.GetComponent<PlayableDirector>().Play();
+            //bandit.GetComponent<PlayableDirector>().playableAsset = bouncyDef;
+            //bandit.GetComponent<PlayableDirector>().Play();
+            enemyanim.Play("IdleDef");
+            playeranim.Play("IdleDef");
             defensePhase = true;
         }
     }
@@ -58,11 +69,13 @@ public class SwapPhase : MonoBehaviour
         if (defensePhase)
         {
             noteholder.GetComponent<BeatScroller>().notePrefab = attackNote;
+            player.GetComponent<SpriteRenderer>().sprite = playerFrontSprite;
             changeBounce();
         }
         else
         {
             noteholder.GetComponent<BeatScroller>().notePrefab = defenseNote;
+            player.GetComponent<SpriteRenderer>().sprite = playerBackSprite;
             changeBounce();
         }
 

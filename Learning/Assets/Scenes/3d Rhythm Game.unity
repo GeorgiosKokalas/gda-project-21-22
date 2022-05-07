@@ -2926,14 +2926,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988142207}
-  m_LocalRotation: {x: 0.12607858, y: -0.25660467, z: 0.033782627, w: 0.9576623}
+  m_LocalRotation: {x: -0.019607944, y: 0.966866, z: -0.24219507, w: -0.07827681}
   m_LocalPosition: {x: -0.36575747, y: 4.7885323, z: -12.922203}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 565607052}
   m_Father: {fileID: 1791496371}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.0000006991297, y: 0.00003075665, z: -0.000007376381}
 --- !u!95 &988142210
 Animator:
   serializedVersion: 3
@@ -4291,7 +4291,7 @@ Animator:
   m_GameObject: {fileID: 1347619338}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 228402b23d3531d4fb3d336113fdf556, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5339,7 +5339,6 @@ GameObject:
   - component: {fileID: 1846782999}
   - component: {fileID: 1846782998}
   - component: {fileID: 1846783000}
-  - component: {fileID: 1846783001}
   m_Layer: 0
   m_Name: Bandit
   m_TagString: Untagged
@@ -5387,7 +5386,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9fbf071f7b3b196408482253c9248376, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 09e94fc67f2359541b752a03db88a12d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5406,8 +5405,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846782997}
   m_LocalRotation: {x: 0.12607859, y: -0.2566048, z: 0.03378265, w: 0.9576623}
-  m_LocalPosition: {x: -1.57, y: 1.24, z: 11.6}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalPosition: {x: -1.72, y: 1.05, z: 11.6}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -5422,7 +5421,7 @@ Animator:
   m_GameObject: {fileID: 1846782997}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3e7815384598e9440a43860e52f4b4bc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5431,31 +5430,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!320 &1846783001
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1846782997}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: eec56559ae915ba42b1e66b0a2c0b1c7, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 1
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 735362342482434572, guid: eec56559ae915ba42b1e66b0a2c0b1c7, type: 2}
-    value: {fileID: 1846783000}
-  - key: {fileID: 4604626546128003499, guid: eec56559ae915ba42b1e66b0a2c0b1c7, type: 2}
-    value: {fileID: 1347619341}
-  - key: {fileID: -8736772082913021494, guid: 1c9cfe777c63fc244b53b4f6f1a6e72e, type: 2}
-    value: {fileID: 1347619341}
-  - key: {fileID: -4283302821413791957, guid: 1c9cfe777c63fc244b53b4f6f1a6e72e, type: 2}
-    value: {fileID: 1846783000}
-  m_ExposedReferences:
-    m_References: []
 --- !u!1 &1847409008
 GameObject:
   m_ObjectHideFlags: 0
@@ -5483,7 +5457,7 @@ RectTransform:
   m_GameObject: {fileID: 1847409008}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.26, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 684199784}
   m_RootOrder: 2
@@ -5513,7 +5487,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9fbf071f7b3b196408482253c9248376, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 09e94fc67f2359541b752a03db88a12d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5978,6 +5952,7 @@ GameObject:
   - component: {fileID: 2109695138}
   - component: {fileID: 2109695140}
   - component: {fileID: 2109695141}
+  - component: {fileID: 2109695142}
   m_Layer: 0
   m_Name: NoteHolder
   m_TagString: Untagged
@@ -6026,6 +6001,8 @@ MonoBehaviour:
   leftCol: {fileID: 1285974076}
   midCol: {fileID: 1395244204}
   rightCol: {fileID: 2077094967}
+  enemyanim: {fileID: 1846783000}
+  playeranim: {fileID: 1347619341}
 --- !u!82 &2109695138
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6136,10 +6113,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteholder: {fileID: 2109695135}
   bandit: {fileID: 1846782997}
+  player: {fileID: 1347619338}
   attackNote: {fileID: 8947263627540496688, guid: bd6f5c6ee31ec1a46a50d0da03e424ae, type: 3}
   defenseNote: {fileID: 6650990477345639130, guid: 216a9dcaa846bc44ea2fdc0378547352, type: 3}
   bouncyDef: {fileID: 11400000, guid: eec56559ae915ba42b1e66b0a2c0b1c7, type: 2}
   bouncyAtk: {fileID: 11400000, guid: 1c9cfe777c63fc244b53b4f6f1a6e72e, type: 2}
+  playerBackSprite: {fileID: 21300000, guid: 6ca570d83b139c948a776fb01d2d3740, type: 3}
+  playerFrontSprite: {fileID: 21300000, guid: 02b8f3f7c9185d248abcc15b70bba3cd, type: 3}
+  enemyanim: {fileID: 1846783000}
+  playeranim: {fileID: 1347619341}
 --- !u!320 &2109695140
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -6167,6 +6149,10 @@ PlayableDirector:
     value: {fileID: 548518930}
   - key: {fileID: -7977078262401577847, guid: c6cfccedac71f1f4caf5d74f34d7ec74, type: 2}
     value: {fileID: 988142207}
+  - key: {fileID: 8551048133051129636, guid: c6cfccedac71f1f4caf5d74f34d7ec74, type: 2}
+    value: {fileID: 2109695141}
+  - key: {fileID: 5012375914356336576, guid: c6cfccedac71f1f4caf5d74f34d7ec74, type: 2}
+    value: {fileID: 988142210}
   m_ExposedReferences:
     m_References:
     - e3a9ba82d0aca684cb14d47af8630768: {fileID: 800406344}
@@ -6192,6 +6178,96 @@ MonoBehaviour:
         - m_Target: {fileID: 2109695139}
           m_TargetAssemblyTypeName: SwapPhase, Assembly-CSharp
           m_MethodName: swapPhase
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &2109695142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109695135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: fbcb33fe038da3342b08a3cfb8b5ba81, type: 2}
+    - {fileID: 11400000, guid: 2c18c1a28afc76c419bd6e6a55407525, type: 2}
+    - {fileID: 11400000, guid: febbb4f435f78f74b9aac5de62f96c0b, type: 2}
+    - {fileID: 11400000, guid: 2022820605e3352499db2c6fd3f9adf6, type: 2}
+    - {fileID: 11400000, guid: f965dcbb8b07ef34883db540baa8336a, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2109695137}
+          m_TargetAssemblyTypeName: BeatScroller, Assembly-CSharp
+          m_MethodName: wickedSaxSolo
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2109695137}
+          m_TargetAssemblyTypeName: BeatScroller, Assembly-CSharp
+          m_MethodName: knifePhase
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2109695137}
+          m_TargetAssemblyTypeName: BeatScroller, Assembly-CSharp
+          m_MethodName: rocketLauncher
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2109695137}
+          m_TargetAssemblyTypeName: BeatScroller, Assembly-CSharp
+          m_MethodName: sillyPose
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2109695137}
+          m_TargetAssemblyTypeName: BeatScroller, Assembly-CSharp
+          m_MethodName: jojoTransformation
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

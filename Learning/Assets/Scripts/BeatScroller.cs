@@ -27,6 +27,10 @@ public class BeatScroller : MonoBehaviour
     private int currentNote;
     private List<double> noteTimestamps = new List<double>();
 
+    private string currentPhase;
+    public Animator enemyanim;
+    public Animator playeranim;
+
     private float timetoTravel = 0.9f;
     //how long it takes for notes to get from one side to the other, dependent on bpm, etc. will probably need adjustments
     //exact time from spawn to death is 1.031042
@@ -41,6 +45,8 @@ public class BeatScroller : MonoBehaviour
         currentNote = 0;
 
         mapTrack = MidiFile.Read("Assets/Audio/forg.mid");
+
+        currentPhase = "slingshot";
 
         generateBeatmap();
     }
@@ -85,6 +91,20 @@ public class BeatScroller : MonoBehaviour
         if (Mathf.Abs((float)((Time.timeSinceLevelLoadAsDouble + timetoTravel) - noteTimestamps[currentNote])) < 0.01f)
         {
             Debug.Log("Note spawn");
+
+            if (currentPhase == "knife")
+            {
+                enemyanim.Play("Knife Throw");
+            }
+            else if(currentPhase == "slingshot")
+            {
+                enemyanim.Play("Slingshot");
+            }
+            else if (currentPhase == "saxophone")
+            {
+                playeranim.Play("Piano");
+            }
+
             int xcount = Random.Range(1, 4);
 
             if (xcount == 1)
@@ -124,5 +144,33 @@ public class BeatScroller : MonoBehaviour
         Debug.Log(noteTimestamps[0]);
         Debug.Log(noteTimestamps[1]);
         Debug.Log(noteTimestamps[2]);
+    }
+
+    public void wickedSaxSolo()
+    {
+        currentPhase = "saxophone";
+        enemyanim.Play("Saxophone");
+    }
+
+    public void knifePhase()
+    {
+        currentPhase = "knife";
+        enemyanim.Play("IdleDef");
+        //only works if we are only changing fight phases(weapons, etc) on defense phase
+    }
+
+    public void rocketLauncher()
+    {
+        enemyanim.Play("RPG");
+    }
+
+    public void sillyPose()
+    {
+        enemyanim.Play("sillyPose");
+    }
+
+    public void jojoTransformation()
+    {
+        enemyanim.Play("jojoTransformation");
     }
 }
